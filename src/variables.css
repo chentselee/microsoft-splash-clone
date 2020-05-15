@@ -1,0 +1,5 @@
+:root {
+  --navbar-icon-size: 25px;
+  --navbar-padding: 15px;
+  --navbar-height: calc(var(--navbar-icon-size) + var(--navbar-padding) * 2);
+}
