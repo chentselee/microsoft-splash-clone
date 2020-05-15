@@ -1,12 +1,12 @@
 # Microsoft splash clone
 A clone of Microsoft splash page(Taiwan).
 
-Library used:
+📚 Library used:
 - React
 - Typescript
 
-Styling:
+🎨 Styling:
 - Sass
 
-Build tool:
+📦 Build tool:
 - parcel
