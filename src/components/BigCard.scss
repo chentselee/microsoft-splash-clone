@@ -1,0 +1,31 @@
+@use '../mixins';
+
+.big-card {
+  width: 100%;
+  padding-bottom: 4rem;
+  background-color: #e6e6e6;
+
+  .card {
+    padding: 0;
+    align-items: center;
+  }
+
+  .card-header {
+    align-self: stretch;
+  }
+
+  .card-image {
+    height: calc(20vw + 120px);
+  }
+
+  .card-body {
+    padding: 4rem 1.5rem;
+    padding-bottom: 0;
+    text-align: center;
+  }
+
+  .card-link {
+    @include mixins.link(white);
+    @include mixins.button();
+  }
+}

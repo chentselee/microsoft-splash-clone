@@ -159,38 +159,6 @@ body {
   }
 }
 
-.big-card {
-  width: 100%;
-  background-color: #e6e6e6;
-  padding-bottom: 4rem;
-
-  .card {
-    padding: 0;
-    align-items: center;
-
-    header {
-      align-self: stretch;
-
-      img {
-        height: calc(20vw + 120px);
-      }
-    }
-
-    main {
-      padding: 4rem 1.5rem;
-      padding-bottom: 0;
-      text-align: center;
-    }
-
-    footer {
-      a {
-        @include link(white);
-        @include button();
-      }
-    }
-  }
-}
-
 .following {
   padding: 0 var(--main-padding) 3rem var(--main-padding);
   display: flex;

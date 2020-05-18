@@ -19,7 +19,7 @@ const Card = (props: CardProps) => {
   } = props;
   return (
     <article className="card">
-      <header>
+      <header className="card-header">
         <img className="card-image" src={image} />
       </header>
       <main className="card-body">
