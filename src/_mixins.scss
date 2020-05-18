@@ -11,3 +11,52 @@
   list-style: none;
   display: flex;
 }
+
+@mixin button-reset {
+  background: none;
+  border: none;
+}
+
+@mixin button($variant: primary) {
+  @include button-reset();
+  padding: 0.75rem 1.5rem;
+  margin: auto 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  @if ($variant == primary) {
+    color: white;
+    background-color: black;
+  } @else if ($variant == secondary) {
+    color: black;
+    background: none;
+  }
+}
+
+@mixin link($color: #0067b8) {
+  display: block;
+  color: $color;
+  font-weight: bold;
+  text-decoration: none;
+
+  &::after {
+    position: relative;
+    right: -8px;
+    content: ">";
+    transition: right 100ms ease;
+  }
+  &:hover {
+    span {
+      border-bottom: 2.5px solid $color;
+    }
+    &::after {
+      right: -12px;
+    }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
