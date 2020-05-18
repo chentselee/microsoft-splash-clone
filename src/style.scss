@@ -8,7 +8,6 @@
 }
 
 :root {
-  --main-padding: 4%;
   --scrollbar: calc(100vw - 100%);
 
   --dropdown-border-color: rgb(219, 219, 219);
@@ -175,71 +174,6 @@ body {
   img {
     width: 30px;
     height: 30px;
-  }
-}
-
-.footer {
-  padding: 2.5rem var(--main-padding);
-  width: 100%;
-  background-color: #f2f2f2;
-
-  main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    row-gap: 3rem;
-
-    h3 {
-      color: #616161;
-      font-size: 17px;
-      font-weight: 600;
-    }
-
-    article {
-      display: flex;
-      flex-direction: column;
-      gap: 1.3rem;
-
-      a {
-        @include footer-link();
-      }
-    }
-  }
-
-  footer {
-    padding-top: 3rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    .language {
-      a {
-        @include footer-link();
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        img {
-          width: 25px;
-          height: 25px;
-        }
-      }
-    }
-
-    .copyright {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-
-      a {
-        @include footer-link();
-      }
-
-      span {
-        @include footer-text();
-      }
-    }
   }
 }
 
