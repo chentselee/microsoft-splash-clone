@@ -1,0 +1,135 @@
+@use '../mixins';
+
+@mixin dropdown-shared {
+  z-index: 1;
+  position: absolute;
+  top: var(--navbar-height);
+  left: 0;
+  display: flex;
+  border: var(--dropdown-border);
+  background-color: #e6e6e6;
+}
+
+.dropdown {
+  @include dropdown-shared();
+  width: 100%;
+  flex-direction: column;
+}
+
+.dropdown-item-link {
+  width: 100%;
+  display: block;
+  padding: 1.2rem;
+  border-bottom: var(--dropdown-border);
+  color: black;
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.dropdown-item:last-child > .dropdown-item-link {
+  border-bottom: none;
+}
+
+.dropdown-item-group:last-child > .dropdown-item-link {
+  border-bottom: var(--dropdown-border);
+}
+
+.dropdown-item-group:last-child
+  .dropdown-item-group-item:last-child
+  > .dropdown-item-link {
+  border-bottom: none;
+}
+
+.dropdown-item-group {
+  > .dropdown-item-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &::after {
+      content: " ^";
+      display: block;
+      transform: rotate(180deg);
+    }
+  }
+
+  > .dropdown-item-group-items {
+    display: none;
+  }
+}
+
+.dropdown-item-group.opened {
+  > .dropdown-item-link {
+    &::after {
+      transform: rotate(0deg);
+    }
+  }
+
+  > .dropdown-item-group-items {
+    display: flex;
+    flex-direction: column;
+
+    .dropdown-item-link {
+      text-indent: 1.5rem;
+    }
+  }
+}
+
+.dropdown-desktop {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .dropdown {
+    display: none;
+  }
+
+  .dropdown-desktop {
+    @include dropdown-shared();
+    --width: 95vw;
+    width: var(--width);
+    left: calc(calc(100vw - var(--width)) / 2);
+    flex-direction: column;
+    list-style: none;
+
+    .dropdown-item-groups {
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .dropdown-item-group {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 16%;
+      gap: 1.5rem;
+    }
+
+    .dropdown-item-group-title {
+      font-weight: 600;
+    }
+
+    .dropdown-item-group-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .dropdown-item-group-item > a {
+      @include mixins.navbar-link();
+    }
+
+    .dropdown-item-map {
+      padding: 1rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-bottom: 2px solid black;
+
+      & > a {
+        @include mixins.navbar-link();
+      }
+    }
+  }
+}
