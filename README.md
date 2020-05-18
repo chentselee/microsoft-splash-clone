@@ -2,8 +2,7 @@
 A clone of Microsoft splash page(Taiwan).
 
 📚 Library used:
-- React
-- Typescript
+- React(typescript)
 
 🎨 Styling:
 - Sass
