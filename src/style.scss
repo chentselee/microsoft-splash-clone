@@ -17,38 +17,6 @@ body {
   flex-wrap: wrap;
 }
 
-.buying-links {
-  padding: 4rem var(--main-padding);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-
-  .buying-link {
-    display: flex;
-    gap: 1rem;
-
-    img {
-      width: 25px;
-      height: 25px;
-    }
-    h3:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-@media (min-width: 1000px) {
-  .buying-links {
-    width: 100%;
-    justify-content: center;
-
-    .buying-link {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-}
-
 .cards {
   width: 100%;
   padding: 1rem var(--main-padding);

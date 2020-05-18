@@ -1,0 +1,32 @@
+.buying-links {
+  padding: 4rem var(--main-padding);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.buying-link {
+  display: flex;
+  gap: 1rem;
+}
+
+.buying-link-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.buying-link-text:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1000px) {
+  .buying-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .buying-link {
+    flex-direction: column;
+    align-items: center;
+  }
+}
