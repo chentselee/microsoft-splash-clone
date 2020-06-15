@@ -60,6 +60,7 @@ const slides: slide[] = [
     ),
   },
 ];
+
 const CarouselProps = {
   slides: slides,
 };
@@ -81,133 +82,119 @@ const buyingLinksProps: BuyingLinkProps[] = [
 
 const cardsProps1: CardProps[] = [
   {
-    data: {
-      image: image3,
-      title: "這是您的 365",
-      text: "Lorem ipsum dolor sit amet.",
-      links: [
-        {
-          name: "最多可供 6 人使用",
-          href: "#!",
-        },
-        {
-          name: "適合 1 人使用",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "這是您的 365",
+    text: "Lorem ipsum dolor sit amet.",
+    links: [
+      {
+        name: "最多可供 6 人使用",
+        href: "#!",
+      },
+      {
+        name: "適合 1 人使用",
+        href: "#!",
+      },
+    ],
   },
   {
-    data: {
-      image: image3,
-      title: "Xbox One X",
-      text: "Lorem ipsum dolor sit amet.",
-      links: [
-        {
-          name: "立即選購",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "Xbox One X",
+    text: "Lorem ipsum dolor sit amet.",
+    links: [
+      {
+        name: "立即選購",
+        href: "#!",
+      },
+    ],
   },
   {
-    data: {
-      image: image3,
-      title: "Surface Laptop 3",
-      text: "Lorem ipsum dolor sit amet.",
-      links: [
-        {
-          name: "立即選購",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "Surface Laptop 3",
+    text: "Lorem ipsum dolor sit amet.",
+    links: [
+      {
+        name: "立即選購",
+        href: "#!",
+      },
+    ],
   },
   {
-    data: {
-      image: image3,
-      title: "Surface Pro X",
-      text:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, at.",
-      links: [
-        {
-          name: "立即選購",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "Surface Pro X",
+    text:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, at.",
+    links: [
+      {
+        name: "立即選購",
+        href: "#!",
+      },
+    ],
   },
 ];
 
-const bigCardProps: CardProps["data"] = {
-  image: image3,
-  title: "Xbox Game Pass Ultimate",
-  text:
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, ratione?",
-  links: [
-    {
-      name: "立即加入",
-      href: "#!",
-    },
-  ],
-};
+const bigCardProps: CardProps[] = [
+  {
+    image: image3,
+    title: "Xbox Game Pass Ultimate",
+    text:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, ratione?",
+    links: [
+      {
+        name: "立即加入",
+        href: "#!",
+      },
+    ],
+  },
+];
 
 const cardsProps2: CardProps[] = [
   {
-    data: {
-      image: image3,
-      title: "Microsoft 365 商務版",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, soluta!",
-      links: [
-        {
-          name: "立即選購",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "Microsoft 365 商務版",
+    text:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, soluta!",
+    links: [
+      {
+        name: "立即選購",
+        href: "#!",
+      },
+    ],
   },
   {
-    data: {
-      image: image3,
-      title: "認識 Surface Pro 7 商務版",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim labore distinctio necessitatibus quos perferendis error!",
-      links: [
-        {
-          name: "立即選購",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "認識 Surface Pro 7 商務版",
+    text:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim labore distinctio necessitatibus quos perferendis error!",
+    links: [
+      {
+        name: "立即選購",
+        href: "#!",
+      },
+    ],
   },
   {
-    data: {
-      image: image3,
-      title: "建立線上教室",
-      text:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, eius!",
-      links: [
-        {
-          name: "深入了解",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "建立線上教室",
+    text:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, eius!",
+    links: [
+      {
+        name: "深入了解",
+        href: "#!",
+      },
+    ],
   },
   {
-    data: {
-      image: image3,
-      title: "探索 Kubernetes",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, soluta!",
-      links: [
-        {
-          name: "開始使用",
-          href: "#!",
-        },
-      ],
-    },
+    image: image3,
+    title: "探索 Kubernetes",
+    text:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, soluta!",
+    links: [
+      {
+        name: "開始使用",
+        href: "#!",
+      },
+    ],
   },
 ];
 
@@ -219,14 +206,16 @@ const App = () => {
       <BuyingLinks data={buyingLinksProps} />
       <section className="cards">
         {cardsProps1.map((card) => (
-          <Card data={card.data} />
+          <Card {...card} />
         ))}
       </section>
-      <BigCard data={bigCardProps} />
+      {bigCardProps.map((bigCard) => (
+        <BigCard {...bigCard} />
+      ))}
       <section className="cards">
         <h1 className="cards-title">適用於工作地點</h1>
         {cardsProps2.map((card) => (
-          <Card data={card.data} />
+          <Card {...card} />
         ))}
       </section>
       <section className="following">

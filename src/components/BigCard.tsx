@@ -2,10 +2,10 @@ import React from "react";
 import Card, { CardProps } from "./Card";
 import "./BigCard.scss";
 
-const BigCard = (props: CardProps) => {
+const BigCard: React.FC<CardProps> = (props) => {
   return (
     <div className="big-card">
-      <Card data={props.data} />
+      <Card {...props} />
     </div>
   );
 };
