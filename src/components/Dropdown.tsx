@@ -1,30 +1,27 @@
 import React, { useState } from "react";
 import "./Dropdown.scss";
 
-interface DropdownItem {
+interface DropdownItemProps {
   name: string;
   href: string;
 }
 
-interface DropdownItemGroups {
+interface DropdownItemGroupProps {
   name: string;
-  items: Array<DropdownItem>;
+  items: Array<DropdownItemProps>;
 }
 
 export interface DropdownProps {
-  data: {
-    items: Array<DropdownItem>;
-    itemGroups?: Array<DropdownItemGroups>;
-    onClose(): void;
-  };
+  items: Array<DropdownItemProps>;
+  itemGroups?: Array<DropdownItemGroupProps>;
+  onClose?(): void;
 }
 
-const Dropdown = (props: DropdownProps) => {
-  const {
-    data: { items, itemGroups = null, onClose = null },
-  } = props;
-
-  const DropdownItemGroup = ({ data }: { data: DropdownItemGroups }) => {
+const Dropdown: React.FC<DropdownProps> = ({ items, itemGroups, onClose }) => {
+  const DropdownItemGroup: React.FC<DropdownItemGroupProps> = ({
+    items,
+    name,
+  }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
       <li
@@ -33,10 +30,10 @@ const Dropdown = (props: DropdownProps) => {
         }`}
       >
         <span className="dropdown-item-link" onClick={() => setIsOpen(!isOpen)}>
-          {data.name}
+          {name}
         </span>
         <ul className="dropdown-item-group-items">
-          {data.items.map((subItem, index) => (
+          {items.map((subItem, index) => (
             <li key={index} className="dropdown-item-group-item">
               <a className="dropdown-item-link" href={subItem.href}>
                 {subItem.name}
@@ -48,12 +45,15 @@ const Dropdown = (props: DropdownProps) => {
     );
   };
 
-  const DropdownItemGroupDesktop = ({ data }: { data: DropdownItemGroups }) => {
+  const DropdownItemGroupDesktop: React.FC<DropdownItemGroupProps> = ({
+    items,
+    name,
+  }) => {
     return (
       <li className="dropdown-item-group">
-        <span className="dropdown-item-group-title">{data.name}</span>
+        <span className="dropdown-item-group-title">{name}</span>
         <ul className="dropdown-item-group-items">
-          {data.items.map((item, index) => (
+          {items.map((item, index) => (
             <li className="dropdown-item-group-item">
               <a href={item.href}>{item.name}</a>
             </li>
@@ -78,17 +78,17 @@ const Dropdown = (props: DropdownProps) => {
           </li>
         ))}
         {itemGroups?.map((item, index) => (
-          <DropdownItemGroup key={index} data={item} />
+          <DropdownItemGroup key={index} {...item} />
         ))}
       </ul>
       <ul className="dropdown-desktop">
         <li className="dropdown-item-groups">
           {itemGroups?.map((item, index) => (
-            <DropdownItemGroupDesktop key={index} data={item} />
+            <DropdownItemGroupDesktop key={index} {...item} />
           ))}
         </li>
         <li className="dropdown-item-map">
-          <a href="#!">檢視網站地圖 ></a>
+          <a href="#!">檢視網站地圖</a>
         </li>
       </ul>
     </>

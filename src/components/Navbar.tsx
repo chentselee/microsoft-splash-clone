@@ -24,20 +24,18 @@ const subLinks = ["item1", "item2", "item3", "item4", "item5"];
 const Navbar = () => {
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   const dropdownProps: DropdownProps = {
-    data: {
-      items: mainLinks.map((link) => {
-        return { name: link, href: "#!" };
-      }),
-      itemGroups: linkGroups.map((group) => {
-        return {
-          name: group,
-          items: subLinks.map((link) => {
-            return { name: link, href: "#!" };
-          }),
-        };
-      }),
-      onClose: () => setDropdownIsOpen(false),
-    },
+    items: mainLinks.map((link) => {
+      return { name: link, href: "#!" };
+    }),
+    itemGroups: linkGroups.map((group) => {
+      return {
+        name: group,
+        items: subLinks.map((link) => {
+          return { name: link, href: "#!" };
+        }),
+      };
+    }),
+    onClose: () => setDropdownIsOpen(false),
   };
   return (
     <nav className="navbar">
@@ -78,7 +76,7 @@ const Navbar = () => {
             </li>
           </ul>
         </li>
-        {dropdownIsOpen ? <Dropdown data={dropdownProps.data} /> : ""}
+        {dropdownIsOpen ? <Dropdown {...dropdownProps} /> : ""}
         <li className="navbar-logo">
           <span>Logo</span>
         </li>
