@@ -5,7 +5,7 @@ import Carousel, { CarouselProps } from "./components/Carousel";
 import BuyingLinks, { BuyingLinksProps } from "./components/BuyingLinks";
 import Card, { CardProps } from "./components/Card";
 import BigCard from "./components/BigCard";
-import Footer from "./components/Footer";
+import Footer, { FooterProps } from "./components/Footer";
 // @ts-ignore
 import image1 from "../public/images/andrew-mantarro-ynVYoNqnCys-unsplash.jpg";
 // @ts-ignore
@@ -198,6 +198,173 @@ const cardsProps2: CardProps[] = [
   },
 ];
 
+const footerProps: FooterProps = {
+  footerSectionProps: [
+    {
+      title: "最新動向",
+      links: [
+        {
+          name: "Microsoft 365",
+          href: "#!",
+        },
+        {
+          name: "Surfacce Go",
+          href: "#!",
+        },
+        {
+          name: "Surface Book 2",
+          href: "#!",
+        },
+        {
+          name: "Surface Pro",
+          href: "#!",
+        },
+        {
+          name: "Windows 10 應用程式",
+          href: "#!",
+        },
+      ],
+    },
+    {
+      title: "Microsoft Store",
+      links: [
+        {
+          name: "帳戶設定檔",
+          href: "#!",
+        },
+        {
+          name: "下載中心",
+          href: "#!",
+        },
+        {
+          name: "Microsoft Store 支援",
+          href: "#!",
+        },
+        {
+          name: "退貨/退款",
+          href: "#!",
+        },
+        {
+          name: "訂單追蹤",
+          href: "#!",
+        },
+      ],
+    },
+    {
+      title: "教育",
+      links: [
+        {
+          name: "Microsoft 在教育領域的應用",
+          href: "#!",
+        },
+        {
+          name: "學生適用的 Office",
+          href: "#!",
+        },
+        {
+          name: "學校適用的 Office 365",
+          href: "#!",
+        },
+        {
+          name: "Microsoft Azure 在教育領域的應用",
+          href: "#!",
+        },
+      ],
+    },
+    {
+      title: "企業",
+      links: [
+        {
+          name: "Azure",
+          href: "#!",
+        },
+        {
+          name: "AppSource",
+          href: "#!",
+        },
+        {
+          name: "汽車",
+          href: "#!",
+        },
+        {
+          name: "政府機構",
+          href: "#!",
+        },
+        {
+          name: "醫療保險",
+          href: "#!",
+        },
+        {
+          name: "製造",
+          href: "#!",
+        },
+        {
+          name: "金融服務",
+          href: "#!",
+        },
+        {
+          name: "零售",
+          href: "#!",
+        },
+      ],
+    },
+    {
+      title: "開發人員",
+      links: [
+        {
+          name: "Microsoft Visual Studio",
+          href: "#!",
+        },
+        {
+          name: "Windows 開發人員中心",
+          href: "#!",
+        },
+        {
+          name: "開發人員網路",
+          href: "#!",
+        },
+        {
+          name: "TechNet",
+          href: "#!",
+        },
+        {
+          name: "Microsoft 開發人員計畫",
+          href: "#!",
+        },
+        {
+          name: "Channel 9",
+          href: "#!",
+        },
+      ],
+    },
+    {
+      title: "公司",
+      links: [
+        {
+          name: "人才招募",
+          href: "#!",
+        },
+        {
+          name: "公司新聞",
+          href: "#!",
+        },
+        {
+          name: "Microsoft 隱私權",
+          href: "#!",
+        },
+        {
+          name: "投資者",
+          href: "#!",
+        },
+        {
+          name: "安全性",
+          href: "#!",
+        },
+      ],
+    },
+  ],
+};
+
 const App = () => {
   return (
     <div className="container">
@@ -227,7 +394,7 @@ const App = () => {
           <img className="following-icon" src={youtube} alt="youtube icon" />
         </a>
       </section>
-      <Footer />
+      <Footer {...footerProps} />
     </div>
   );
 };
