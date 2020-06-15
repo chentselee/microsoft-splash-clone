@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import Navbar from "./components/Navbar";
 import Carousel, { CarouselProps } from "./components/Carousel";
-import BuyingLinks, { BuyingLinkProps } from "./components/BuyingLinks";
+import BuyingLinks, { BuyingLinksProps } from "./components/BuyingLinks";
 import Card, { CardProps } from "./components/Card";
 import BigCard from "./components/BigCard";
 import Footer from "./components/Footer";
@@ -63,20 +63,22 @@ const carouselProps: CarouselProps = {
   ],
 };
 
-const buyingLinksProps: BuyingLinkProps[] = [
-  {
-    image: tile,
-    text: "選擇您的 Microsoft 365",
-  },
-  {
-    image: tablet,
-    text: "選購 Surface 裝置",
-  },
-  {
-    image: tile,
-    text: "選購 Windows 10",
-  },
-];
+const buyingLinksProps: BuyingLinksProps = {
+  buyingLinks: [
+    {
+      image: tile,
+      text: "選擇您的 Microsoft 365",
+    },
+    {
+      image: tablet,
+      text: "選購 Surface 裝置",
+    },
+    {
+      image: tile,
+      text: "選購 Windows 10",
+    },
+  ],
+};
 
 const cardsProps1: CardProps[] = [
   {
@@ -201,7 +203,7 @@ const App = () => {
     <div className="container">
       <Navbar />
       <Carousel {...carouselProps} />
-      <BuyingLinks data={buyingLinksProps} />
+      <BuyingLinks {...buyingLinksProps} />
       <section className="cards">
         {cardsProps1.map((card) => (
           <Card {...card} />

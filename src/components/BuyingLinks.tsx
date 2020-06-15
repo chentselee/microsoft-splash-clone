@@ -1,18 +1,17 @@
 import React from "react";
 import "./BuyingLinks.scss";
 
-export interface BuyingLinkProps {
+interface BuyingLinkProps {
   image: string;
   text: string;
 }
 
-interface BuyingLinksProps {
-  data: BuyingLinkProps[];
+export interface BuyingLinksProps {
+  buyingLinks: BuyingLinkProps[];
 }
 
-const BuyingLinks = (props: BuyingLinksProps) => {
-  const { data } = props;
-  const BuyingLink = ({ image, text }: BuyingLinkProps) => {
+const BuyingLinks: React.FC<BuyingLinksProps> = ({ buyingLinks }) => {
+  const BuyingLink: React.FC<BuyingLinkProps> = ({ image, text }) => {
     return (
       <li className="buying-link">
         <img className="buying-link-icon" src={image} alt={text} />
@@ -23,7 +22,7 @@ const BuyingLinks = (props: BuyingLinksProps) => {
 
   return (
     <ul className="buying-links">
-      {data.map((item, index) => (
+      {buyingLinks.map((item, index) => (
         <BuyingLink key={index} image={item.image} text={item.text} />
       ))}
     </ul>
