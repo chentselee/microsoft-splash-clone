@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Navbar from "./components/Navbar";
-import Carousel, { slide } from "./components/Carousel";
+import Carousel, { CarouselProps } from "./components/Carousel";
 import BuyingLinks, { BuyingLinkProps } from "./components/BuyingLinks";
 import Card, { CardProps } from "./components/Card";
 import BigCard from "./components/BigCard";
@@ -21,48 +21,46 @@ import facebook from "../public/icons/social-media/facebook.svg";
 // @ts-ignore
 import youtube from "../public/icons/social-media/youtube.svg";
 
-const slides: slide[] = [
-  {
-    image: image1,
-    content: (
-      <>
-        <h1>全新 Microsoft 365</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-          exercitationem ut optio, voluptas omnis eveniet.
-        </p>
-        <div className="carousel-main-buttons">
-          <button className="button button-primary">
-            <span>適用於家庭</span>
-          </button>
-          <button className="button button-secondary">
-            <span>適用於商務</span>
-          </button>
-        </div>
-      </>
-    ),
-  },
-  {
-    image: image2,
-    content: (
-      <>
-        <h1>使用 Microsoft Teams 遠距工作</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis,
-          aspernatur.
-        </p>
-        <div className="carousel-main-buttons">
-          <button className="button button-primary">
-            <span>深入瞭解</span>
-          </button>
-        </div>
-      </>
-    ),
-  },
-];
-
-const CarouselProps = {
-  slides: slides,
+const carouselProps: CarouselProps = {
+  slides: [
+    {
+      image: image1,
+      content: (
+        <>
+          <h1>全新 Microsoft 365</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            exercitationem ut optio, voluptas omnis eveniet.
+          </p>
+          <div className="carousel-main-buttons">
+            <button className="button button-primary">
+              <span>適用於家庭</span>
+            </button>
+            <button className="button button-secondary">
+              <span>適用於商務</span>
+            </button>
+          </div>
+        </>
+      ),
+    },
+    {
+      image: image2,
+      content: (
+        <>
+          <h1>使用 Microsoft Teams 遠距工作</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis,
+            aspernatur.
+          </p>
+          <div className="carousel-main-buttons">
+            <button className="button button-primary">
+              <span>深入瞭解</span>
+            </button>
+          </div>
+        </>
+      ),
+    },
+  ],
 };
 
 const buyingLinksProps: BuyingLinkProps[] = [
@@ -202,7 +200,7 @@ const App = () => {
   return (
     <div className="container">
       <Navbar />
-      <Carousel data={CarouselProps} />
+      <Carousel {...carouselProps} />
       <BuyingLinks data={buyingLinksProps} />
       <section className="cards">
         {cardsProps1.map((card) => (

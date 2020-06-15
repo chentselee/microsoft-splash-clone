@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Carousel.scss";
 
-export interface slide {
+export interface SlideProps {
   image?: string;
   content: JSX.Element;
 }
 
-interface props {
-  data: {
-    slides: slide[];
-  };
+export interface CarouselProps {
+  slides: SlideProps[];
 }
 
 const calcIndex = (index: number, newIndex: number, length: number) => {
@@ -19,7 +17,7 @@ const calcIndex = (index: number, newIndex: number, length: number) => {
   return newIndex % length;
 };
 
-const Carousel = ({ data: { slides } }: props) => {
+const Carousel: React.FC<CarouselProps> = ({ slides }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentTimeout, setCurrentTimeout] = useState<NodeJS.Timeout>();
