@@ -2,12 +2,46 @@
   padding: 4rem var(--main-padding);
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+}
+
+.buying-links > * {
+  margin-bottom: 2rem;
+}
+
+.buying-links > :not(:last-child) {
+  margin-right: 2rem;
+}
+
+@supports (display: subgrid) {
+  .buying-links {
+    gap: 2rem;
+  }
+
+  .buying-links > * {
+    margin-bottom: 0;
+  }
+
+  .buying-links > :not(:last-child) {
+    margin-right: 0;
+  }
 }
 
 .buying-link {
   display: flex;
-  gap: 1rem;
+}
+
+.buying-link > :not(:last-child) {
+  margin-right: 1rem;
+}
+
+@supports (display: subgrid) {
+  .buying-link {
+    gap: 1rem;
+  }
+
+  .buying-link > :not(:last-child) {
+    margin-right: 0;
+  }
 }
 
 .buying-link-icon {
@@ -32,5 +66,16 @@
   .buying-link {
     flex-direction: column;
     align-items: center;
+  }
+
+  .buying-link > :not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  @supports (display: subgrid) {
+    .buying-link > :not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 }

@@ -16,7 +16,20 @@
 
 .navbar-icons {
   @include mixins.navbar-list;
-  column-gap: 2rem;
+}
+
+.navbar-icons > :not(:last-child) {
+  margin-right: 2rem;
+}
+
+@supports (display: subgrid) {
+  .navbar-icons {
+    column-gap: 2rem;
+  }
+
+  .navbar-icons > :not(:last-child) {
+    margin-right: 0;
+  }
 }
 
 .navbar-icon {
@@ -30,8 +43,18 @@
 }
 
 @media (min-width: 1000px) {
-  .navbar-container {
-    column-gap: 2rem;
+  .navbar-container > :not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  @supports (display: subgrid) {
+    .navbar-container {
+      column-gap: 2rem;
+    }
+
+    .navbar-container > :not(:last-child) {
+      margin-right: 0;
+    }
   }
 
   .navbar-menu {
@@ -44,7 +67,20 @@
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
-    gap: 1rem;
+  }
+
+  .navbar-left > :not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  @supports (display: subgrid) {
+    .navbar-left {
+      gap: 1rem;
+    }
+
+    .navbar-left > :not(:last-child) {
+      margin-right: 0;
+    }
   }
 
   .navbar-right {
@@ -60,12 +96,38 @@
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
-    column-gap: 2rem;
+  }
+
+  .navbar-desktop > :not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  @supports (display: subgrid) {
+    .navbar-desktop {
+      column-gap: 2rem;
+    }
+
+    .navbar-desktop > :not(:last-child) {
+      margin-right: 0;
+    }
   }
 
   .navbar-main-links {
     @include mixins.navbar-list;
-    column-gap: 2rem;
+  }
+
+  .navbar-main-links > :not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  @supports (display: subgrid) {
+    .navbar-main-links {
+      column-gap: 2rem;
+    }
+
+    .navbar-main-links > :not(:last-child) {
+      margin-right: 0;
+    }
   }
 
   .navbar-link,
@@ -92,6 +154,20 @@
       &::after {
         transform: rotate(0deg);
       }
+    }
+  }
+
+  .navbar-dropdown > :not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  @supports (display: subgrid) {
+    .navbar-dropdown {
+      gap: 1rem;
+    }
+
+    .navbar-dropdown > :not(:last-child) {
+      margin-right: 0;
     }
   }
 }

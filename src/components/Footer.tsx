@@ -40,7 +40,7 @@ const Footer: React.FC<FooterProps> = ({ footerSectionProps }) => {
         <section className="footer-language">
           <a href="#!">
             <img src={globe} alt="globe icon" />
-            中文(台灣)
+            <span>中文(台灣)</span>
           </a>
         </section>
         <section className="footer-copyright">

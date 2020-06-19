@@ -38,7 +38,6 @@
   padding: calc(5% + 20px) 10%;
   padding-bottom: 5%;
   flex-direction: column;
-  row-gap: 5px;
   text-align: center;
 
   & > h1 {
@@ -46,11 +45,24 @@
   }
 }
 
+.carousel-main > :not(:last-child) {
+  margin-bottom: 5px;
+}
+
+@supports (display: subgrid) {
+  .carousel-main {
+    row-gap: 5px;
+  }
+
+  .carousel-main > :not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
 .carousel-main-buttons {
   @include mixins.flex-center();
   margin-top: 10px;
   flex-wrap: wrap;
-  gap: 5px;
 
   .button-primary {
     @include mixins.button(primary);
@@ -62,10 +74,37 @@
   }
 }
 
+.carousel-main-buttons > :not(:last-child) {
+  margin-bottom: 5px;
+}
+
+@supports (display: subgrid) {
+  .carousel-main-buttons {
+    row-gap: 5px;
+  }
+
+  .carousel-main-buttons > :not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
 .carousel-control {
   @include mixins.flex-center();
   padding: 10px;
-  gap: 10px;
+}
+
+.carousel-control > :not(:last-child) {
+  margin-right: 10px;
+}
+
+@supports (display: subgrid) {
+  .carousel-control {
+    column-gap: 10px;
+  }
+
+  .carousel-control > :not(:last-child) {
+    margin-right: 0;
+  }
 }
 
 .carousel-control-index {
