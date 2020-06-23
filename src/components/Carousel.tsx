@@ -10,7 +10,7 @@ export interface CarouselProps {
   slides: SlideProps[];
 }
 
-const useAutoPlaySlides = (duration: number, slidesLength: number) => {
+export const useAutoPlaySlides = (duration: number, slidesLength: number) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout>();
@@ -34,6 +34,7 @@ const useAutoPlaySlides = (duration: number, slidesLength: number) => {
     }
     return () => {
       timeoutRef.current && clearTimeout(timeoutRef.current);
+      timeoutRef.current = undefined;
     };
   }, [isPlaying, currentIndex, duration, slidesLength]);
 
