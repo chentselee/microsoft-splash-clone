@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Carousel.scss";
 
 export interface SlideProps {
@@ -10,30 +10,27 @@ export interface CarouselProps {
   slides: SlideProps[];
 }
 
-const calcIndex = (index: number, newIndex: number, length: number) => {
-  if (index === 0) {
-    return length - 1;
-  }
+const calcIndex = (newIndex: number, length: number) => {
+  if (newIndex < 0) return length - 1;
   return newIndex % length;
 };
 
 const Carousel: React.FC<CarouselProps> = ({ slides }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentTimeout, setCurrentTimeout] = useState<NodeJS.Timeout>();
+  const timeout = useRef<NodeJS.Timeout>();
   const duration = 5000;
   useEffect(() => {
-    currentTimeout && clearTimeout(currentTimeout);
+    timeout.current && clearTimeout(timeout.current);
     if (isPlaying) {
-      const timeout = setTimeout(
-        () =>
-          setCurrentIndex(
-            calcIndex(currentIndex, currentIndex + 1, slides.length)
-          ),
+      timeout.current = setTimeout(
+        () => setCurrentIndex(calcIndex(currentIndex + 1, slides.length)),
         duration
       );
-      setCurrentTimeout(timeout);
     }
+    return () => {
+      timeout.current && clearTimeout(timeout.current);
+    };
   }, [isPlaying, currentIndex]);
   return (
     <div className="carousel">
@@ -67,22 +64,21 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
               isPlaying ? " playing" : " stopped"
             }`}
             onClick={() => setIsPlaying(!isPlaying)}
+            data-testid="carousel-toggle"
           ></button>
           <button
             className="carousel-control-previous"
             onClick={() => {
-              setCurrentIndex(
-                calcIndex(currentIndex, currentIndex - 1, slides.length)
-              );
+              setCurrentIndex(calcIndex(currentIndex - 1, slides.length));
             }}
+            data-testid="carousel-previous"
           ></button>
           <button
             className="carousel-control-next"
             onClick={() => {
-              setCurrentIndex(
-                calcIndex(currentIndex, currentIndex + 1, slides.length)
-              );
+              setCurrentIndex(calcIndex(currentIndex + 1, slides.length));
             }}
+            data-testid="carousel-next"
           ></button>
         </div>
       </div>
