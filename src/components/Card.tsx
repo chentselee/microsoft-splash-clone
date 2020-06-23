@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ image, title, text, links }) => {
       <footer className="card-footer">
         {links
           ? links.map((link) => (
-              <a className="card-link" href={link.href}>
+              <a key={link.name} className="card-link" href={link.href}>
                 <span>{link.name}</span>
               </a>
             ))

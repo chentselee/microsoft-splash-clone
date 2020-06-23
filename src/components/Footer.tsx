@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ footerSectionProps }) => {
       <article className="footer-section">
         <h3 className="footer-title">{title}</h3>
         {links.map((link) => (
-          <a className="footer-link" href={link.href}>
+          <a key={link.name} className="footer-link" href={link.href}>
             {link.name}
           </a>
         ))}
@@ -33,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ footerSectionProps }) => {
     <footer className="footer">
       <main className="footer-body">
         {footerSectionProps.map((section) => (
-          <FooterSection {...section} />
+          <FooterSection key={section.title} {...section} />
         ))}
       </main>
       <footer className="footer-footer">
@@ -51,7 +51,9 @@ const Footer: React.FC<FooterProps> = ({ footerSectionProps }) => {
             "商標",
             "有關我們的廣告訊息",
           ].map((link) => (
-            <a href="#!">{link}</a>
+            <a key={link} href="#!">
+              {link}
+            </a>
           ))}
           <span>© Microsoft Splash Clone 2020</span>
         </section>

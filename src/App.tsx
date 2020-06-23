@@ -373,16 +373,16 @@ const App = () => {
       <BuyingLinks {...buyingLinksProps} />
       <section className="cards">
         {cardsProps1.map((card) => (
-          <Card {...card} />
+          <Card key={card.title} {...card} />
         ))}
       </section>
       {bigCardProps.map((bigCard) => (
-        <BigCard {...bigCard} />
+        <BigCard key={bigCard.title} {...bigCard} />
       ))}
       <section className="cards">
         <h1 className="cards-title">適用於工作地點</h1>
         {cardsProps2.map((card) => (
-          <Card {...card} />
+          <Card key={card.title} {...card} />
         ))}
       </section>
       <section className="following">

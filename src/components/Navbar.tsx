@@ -45,7 +45,7 @@ const Navbar = () => {
             <li>
               <ul className="navbar-main-links">
                 {mainLinks.map((link) => (
-                  <li>
+                  <li key={link}>
                     <a className="navbar-link" href="#!">
                       {link}
                     </a>
